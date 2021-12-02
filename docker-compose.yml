@@ -1,8 +1,21 @@
 version: '3.8'
 services:
+#  web:
+#    container_name: next-app
+#    build:
+#      context: ./
+#    networks:
+#      - app
+#    ports:
+#      - '3000:3000'
+#    depends_on:
+#      - postgres
+#      - graphql-engine
   postgres:
     image: postgres:12
     restart: always
+    networks:
+      - app
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
@@ -10,24 +23,21 @@ services:
       - POSTGRES_PASSWORD=hasura
       - POSTGRES_DB=hasura
   graphql-engine:
-    image: hasura/graphql-engine:v2.0.10
+    image: hasura/graphql-engine:v2.0.10.cli-migrations-v3
     ports:
       - "8080:8080"
     depends_on:
       - postgres
+    networks:
+      - app
     restart: always
     environment:
-      ## postgres database to store Hasura metadata
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://hasura:hasura@postgres:5432/hasura
-      ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
       PG_DATABASE_URL: postgres://hasura:hasura@postgres:5432/hasura
-      ## enable the console served by server
-      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
-      ## enable debugging mode. It is recommended to disable this in production
-      HASURA_GRAPHQL_DEV_MODE: "true"
-      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
-      ## uncomment next line to set an admin secret
-      # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+    volumes:
+      - ./migrations:/hasura-migrations
 volumes:
   db_data:
-
+networks:
+  app:
+    driver: bridge

@@ -1,0 +1,1 @@
+delete from long_tails where title in ('Hello', 'Hello 2', 'Hello 3');
