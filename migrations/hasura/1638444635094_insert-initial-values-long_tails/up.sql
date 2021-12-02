@@ -1,5 +1,5 @@
-insert into long_tails(title, description)
+insert into long_tails(tail, json_id)
 values
-    ('Hello','World'),
-    ('Hello 2','World 2'),
-    ('Hello 3','World 3');
+    ('best-hello-ever',1),
+    ('best-hello-world-ever',2),
+    ('best-world-ever',3);
