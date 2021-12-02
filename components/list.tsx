@@ -1,20 +1,19 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
+import MainContainer from './main-container'
 
 export const ALL_TAILS_QUERY = gql`
     query {
         long_tails {
-            id
-            title
-            description
+            tail
+            json_id
         }
     }
 `
 
 interface ITail {
-	id: number
-	title: string
-	description: string
+	tail: string
+	json_id: number
 }
 
 const List = () => {
@@ -25,24 +24,24 @@ const List = () => {
 
 	const { long_tails: list } = data
 	return (
-		<table className="table table-sm table-hover mt-2">
-			<thead>
-			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Title</th>
-				<th scope="col">Description</th>
-			</tr>
-			</thead>
-			<tbody>
-			{ list.map((l: ITail) => (
-				<tr key={ l.id }>
-					<th scope="row">{ l.id }</th>
-					<td>{ l.title }</td>
-					<td>{ l.description }</td>
+		<MainContainer>
+			<table className="table table-sm table-hover mt-2">
+				<thead>
+				<tr>
+					<th scope="col">Tail</th>
+					<th scope="col">json_id</th>
 				</tr>
-			)) }
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+				{ list.map((l: ITail) => (
+					<tr key={ l.json_id }>
+						<th scope="row">{ l.json_id }</th>
+						<td>{ l.tail }</td>
+					</tr>
+				)) }
+				</tbody>
+			</table>
+		</MainContainer>
 	)
 }
 

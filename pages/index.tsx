@@ -1,23 +1,12 @@
 import List from '../components/list'
-// import { initializeApollo, addApolloState } from '../lib/apolloClient'
+import MainContainer from '../components/main-container'
 
 function HomePage() {
-	return <div className="container">
-		<List/>
-	</div>
+	return (
+		<MainContainer>
+			<List/>
+		</MainContainer>
+	)
 }
-
-// export async function getStaticProps() {
-// 	const apolloClient = initializeApollo()
-//
-// 	await apolloClient.query({
-// 		query: ALL_TAILS_QUERY,
-// 	})
-//
-// 	return addApolloState(apolloClient, {
-// 		props: {},
-// 		revalidate: 1,
-// 	})
-// }
 
 export default HomePage

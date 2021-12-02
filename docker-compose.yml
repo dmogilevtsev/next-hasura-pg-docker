@@ -1,16 +1,16 @@
 version: '3.8'
 services:
-  #  web:
-  #    container_name: next-app
-  #    build:
-  #      context: ./
-  #    networks:
-  #      - app
-  #    ports:
-  #      - '3000:3000'
-  #    depends_on:
-  #      - postgres
-  #      - graphql-engine
+  web:
+    container_name: next-app
+    build:
+      context: ./
+    networks:
+      - app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+      - graphql-engine
   postgres:
     image: postgres:12
     restart: always
@@ -42,7 +42,7 @@ services:
       HASURA_GRAPHQL_DEV_MODE: "true"
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       HASURA_GRAPHQL_MIGRATIONS_DIR: migrations/hasura
-        # uncomment next line to set an admin secret
+      # uncomment next line to set an admin secret
 #      HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
 #    volumes:
 #      - ./migrations:/hasura-migrations
