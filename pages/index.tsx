@@ -2,9 +2,9 @@ import List, { ALL_TAILS_QUERY } from '../components/list'
 import { initializeApollo, addApolloState } from '../lib/apolloClient'
 
 function HomePage() {
-	return <>
+	return <div className="container">
 		<List/>
-	</>
+	</div>
 }
 
 export async function getStaticProps() {
