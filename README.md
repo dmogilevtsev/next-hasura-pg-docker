@@ -14,4 +14,5 @@ For start app run command (add flag `-d` to run in background):
 docker-compose up
 ```
 
-![gif](https://github.com/dmogilevtsev/next-hasura-pg-docker/demonstration.gif)
+### Demonstration
+![gif](https://github.com/dmogilevtsev/next-hasura-pg-docker/blob/main/demonstration.gif)
