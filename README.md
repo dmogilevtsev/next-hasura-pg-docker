@@ -13,7 +13,7 @@ For start app run command:
 ```shell
 git clone https://github.com/dmogilevtsev/next-hasura-pg-docker.git
 cd next-hasura-pg-docker
-# add flag `-d` to run in background
+# add flag <-d> to run in background
 docker-compose up
 ```
 
