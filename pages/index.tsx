@@ -1,10 +1,9 @@
-import type { NextPage } from 'next'
+import List from '../components/list'
 
-const Home: NextPage = () => {
-
-  return (
-    <div>Hello</div>
-  )
+function HomePage() {
+	return <>
+		<List/>
+	</>
 }
 
-export default Home
+export default HomePage
