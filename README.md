@@ -9,10 +9,11 @@ Technology stack:
 - [Docker](https://www.docker.com/)
 
 ### Start app
-For start app run command (add flag `-d` to run in background):
+For start app run command:
 ```shell
 git clone https://github.com/dmogilevtsev/next-hasura-pg-docker.git
 cd next-hasura-pg-docker
+# add flag `-d` to run in background
 docker-compose up
 ```
 
