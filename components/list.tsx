@@ -1,5 +1,6 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
+import Link from 'next/link'
 import MainContainer from './main-container'
 
 export const ALL_TAILS_QUERY = gql`
@@ -11,7 +12,7 @@ export const ALL_TAILS_QUERY = gql`
     }
 `
 
-interface ITail {
+export interface ITail {
 	tail: string
 	json_id: number
 }
@@ -36,7 +37,7 @@ const List = () => {
 				{ list.map((l: ITail) => (
 					<tr key={ l.json_id }>
 						<th scope="row">{ l.json_id }</th>
-						<td>{ l.tail }</td>
+						<td><Link href={l.tail}>{ l.tail }</Link></td>
 					</tr>
 				)) }
 				</tbody>
