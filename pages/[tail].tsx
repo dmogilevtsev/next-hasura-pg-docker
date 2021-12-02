@@ -37,9 +37,9 @@ const Tail = ({ data }: any) => {
 	const result = data.filter((d: any) => d.id === dt.long_tails[0].json_id)
 	return (
 		<MainContainer>
-			<Link href="/">Назад</Link>
+			<Link href="/">Return</Link>
 			<ul className="list-group">
-				{ result.map((dt: any) => <li key={ dt.id } className="list-group-item">{ JSON.stringify(dt, null, 2) }</li>) }
+				{ result.map((dt: any) => <li key={ dt.id } className="list-group-item"><pre>{ JSON.stringify(dt, null, 2) }</pre></li>) }
 			</ul>
 		</MainContainer>
 	)
